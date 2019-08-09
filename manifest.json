@@ -1,0 +1,7 @@
+{
+  "name": "Border",
+  "id": "740014625507871586",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/index.html"
+}
