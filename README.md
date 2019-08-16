@@ -20,6 +20,10 @@ Gulp
 |- inline-source
 ```
 
+```npm run dev```
+or
+```npm run build```
+
 
 ## License
 [MIT](http://opensource.org/licenses/MIT)
