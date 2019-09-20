@@ -27,6 +27,8 @@ indent_style = tab
 [*.{js,ts,svelte}]
 indent_style = space
 indent_size = 2
+semi = false
+single_quote = true
 
 # Matches the exact files either package.json or .travis.yml
 [{package.json,.travis.yml}]
