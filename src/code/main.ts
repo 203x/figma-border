@@ -103,9 +103,7 @@ figma.ui.onmessage = (msg: Msg) => {
     if (figma.currentPage.selection.length < 1) {
       figma.closePlugin('Select Frame.')
     }
-    for (const node of figma.currentPage.selection) {
-      console.log(node.type)
-      
+    for (const node of figma.currentPage.selection) {      
       if (isValidFrame(node)) {
         const nodes = getBorder(node, msg.position)
         if (nodes.length < 1) {
