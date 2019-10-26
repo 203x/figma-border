@@ -32,7 +32,7 @@
     color: rgba(0, 0, 0, 0.8);
     background-color: #fff;
 
-    transition: all 300ms;
+    /* transition: all 300ms; */
   }
   button:hover {
     border: 1px solid #ccc;
