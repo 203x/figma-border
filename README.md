@@ -1,6 +1,7 @@
 <p align="center">Quickly add single borders in Frame.</p>
 <p align="center"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License"></p>
-![preview](preview.gif)
+
+![preview](./assets/preview.gif)
 
 ## Installation
 
