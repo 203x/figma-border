@@ -15,13 +15,12 @@ function createBorder(node: ValidNode, position: Pos, weight: number) {
   line.name = 'Border_' + position
   line.strokeWeight = weight
 
-  switch(position)
-  {
+  switch (position) {
     case 'top':
       line.x = 0
       line.y = 0 + weight
       line.resize(node.width, 0)
-  
+
       line.constraints = {
         'horizontal': 'STRETCH',
         'vertical': 'MIN'
@@ -87,7 +86,7 @@ function postBorders() {
 
   for (const node of figma.currentPage.selection) {
     if (isValidFrame(node)) {
-      
+
       for (const pos of pos_arr) {
         const nodes = getBorder(node, pos)
         figma.ui.postMessage({
@@ -116,7 +115,7 @@ figma.ui.onmessage = (msg: Msg) => {
     if (figma.currentPage.selection.length < 1) {
       figma.notify('Select Frame.')
     }
-    for (const node of figma.currentPage.selection) {      
+    for (const node of figma.currentPage.selection) {
       if (isValidFrame(node)) {
         const nodes = getBorder(node, msg.position)
         if (nodes.length < 1) {
