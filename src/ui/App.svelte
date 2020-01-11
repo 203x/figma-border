@@ -19,23 +19,35 @@
 </script>
 
 <style>
-ul {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-ul li {
-  display: inline-block;
-  margin-bottom: 5px;
-  /* font-size: 1.5em; */
-}
+  .main {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .tips {
+    font-size: 1.2em;
+    color: #aaa;
+  }
+  ul li {
+    display: inline-block;
+    margin-bottom: 5px;
+    /* font-size: 1.5em; */
+  }
 </style>
 
-<ul class="inner">
-  {#each $borders as border (border.position)}
-    <li>
-      <BorderButton on:msg={msg} {...border} >
-        <BorderIcon position={border.position}/>
-      </BorderButton>
-    </li>
-  {/each}
-</ul>
+<div class="main inner">
+  {#if $borders.length > 0}
+  <ul>
+    {#each $borders as border (border.position)}
+      <li>
+        <BorderButton on:msg={msg} {...border} >
+          <BorderIcon position={border.position}/>
+        </BorderButton>
+      </li>
+    {/each}
+  </ul>
+  {:else}
+  <div class="tips">Select Frame.</div>
+  {/if}
+</div>
+
+
