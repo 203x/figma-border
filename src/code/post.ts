@@ -19,7 +19,7 @@ function check_selection(selection: ReadonlyArray<SceneNode>) {
 }
 
 function postBorders() {
-  console.log(figma.currentPage.selection)
+  // console.log(figma.currentPage.selection)
   
   figma.ui.postMessage({
     type: 'border',
