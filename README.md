@@ -16,10 +16,9 @@ You can install it through the Figma App [here](https://www.figma.com/c/plugin/7
 
 ## Development
 ```
-Gulp
-|- Rollup + Svelte
-|- Sass
-|- inline-source
+Rollup
+|- UI: Svelte + Sass
+|- Main: Typescript
 ```
 
 ```npm run dev```
