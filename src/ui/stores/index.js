@@ -1,52 +1,51 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store'
 
 export const borders = writable([
   {
-    position: "left",
-    exist: false
+    position: 'left',
+    exist: false,
   },
   {
-    position: "right",
-    exist: false
+    position: 'right',
+    exist: false,
   },
   {
-    position: "top",
-    exist: false
+    position: 'top',
+    exist: false,
   },
   {
-    position: "bottom",
-    exist: false
-  }
-]);
+    position: 'bottom',
+    exist: false,
+  },
+])
 
 window.onmessage = e => {
-  const pos_arr = ["left", "right", "top", "bottom"];
-  const pos_arr_name = pos_arr.map(pos => `Border_${pos}`);
-  const message = e.data.pluginMessage;
-  if (message.type === "border") {
-    
+  const pos_arr = ['left', 'right', 'top', 'bottom']
+  const message = e.data.pluginMessage
+  if (message.type === 'border') {
     borders.update(() => {
-      if (message.data.length === 0) {
+      
+      if (Object.keys(message.data).length === 0) {
         return []
       }
 
       const borders = pos_arr.map(pos => {
         return {
           position: pos,
-          exist: false
-        };
-      });
+          exist: false,
+        }
+      })
 
-      message.data.forEach(node => {
-        node.border.forEach(children => {
-          const index = pos_arr_name.indexOf(children.name);
+      Object.keys(message.data).forEach(id => {
+        Object.keys(message.data[id]).forEach(borderId => {
+          const index = pos_arr.indexOf(message.data[id][borderId])
           if (index >= 0) {
-            borders[index].exist = true;
+            borders[index].exist = true
           }
-        });
-      });
+        })
+      })
 
-      return borders;
-    });
+      return borders
+    })
   }
-};
+}

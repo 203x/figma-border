@@ -1,6 +1,11 @@
 {
-  "exclude": ["node_modules/*"],
+  // "moduleResolution": "node",
   "compilerOptions": {
-    "target": "es6"
-  }
+    "target": "es6",
+    "locale": "zh-CN",
+    "esModuleInterop": true
+  },
+  "files": ["figma.d.ts"],
+  "exclude": ["node_modules"],
+  "include": ["src/code"]
 }
