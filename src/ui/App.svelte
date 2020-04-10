@@ -24,8 +24,12 @@
     margin-bottom: 10px;
   }
   .tips {
-    font-size: 1.2em;
-    color: #aaa;
+    font-size: 1em;
+    color: #333;
+    background: #eee;
+    border-radius: 5px;
+    text-align: center;
+    padding: 8px;
   }
   ul li {
     display: inline-block;
@@ -46,7 +50,7 @@
     {/each}
   </ul>
   {:else}
-  <div class="tips">Select Frame.</div>
+  <div class="tips">Select one or more Frame layers.</div>
   {/if}
 </div>
 

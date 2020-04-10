@@ -14,7 +14,7 @@ function postBorders(): void {
 }
 
 figma.showUI(__html__, {
-  width: 180,
+  width: 210,
   height: 80,
 })
 
