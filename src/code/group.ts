@@ -54,14 +54,24 @@ class BorderFrame {
   }
 
   addBorder(position: Pos, weight = 1): LineNode {
+    var groupY = 0 , groupX = 0;
+
+
+
+    if(isGroup(this.node)){
+      groupY = this.node.y
+      groupX = this.node.x
+    }
+
+
     const line = figma.createLine()
     line.name = position    
     line.strokeWeight = weight
 
     switch (position) {
       case 'top':
-        line.x = this.node.x
-        line.y = 0 + weight + this.node.y
+        line.x = groupX
+        line.y = 0 + weight + groupY
         line.resize(this.node.width, 0)
 
         line.constraints = {
@@ -70,8 +80,8 @@ class BorderFrame {
         }
         break
       case 'right':
-        line.x = this.node.x + this.node.width - weight
-        line.y = this.node.y
+        line.x = groupX + this.node.width - weight
+        line.y = groupY
         line.resize(this.node.height, 0)
         line.rotation = -90
         line.constraints = {
@@ -80,8 +90,8 @@ class BorderFrame {
         }
         break
       case 'bottom':
-        line.x = this.node.x
-        line.y = this.node.height + this.node.y
+        line.x = groupX
+        line.y = this.node.height + groupY
         line.resize(this.node.width, 0)
         line.constraints = {
           horizontal: 'STRETCH',
@@ -89,8 +99,8 @@ class BorderFrame {
         }
         break
       case 'left':
-        line.x = this.node.x
-        line.y = this.node.y
+        line.x = groupX
+        line.y = groupY
         line.resize(this.node.height, 0)
         line.rotation = -90
         line.constraints = {
