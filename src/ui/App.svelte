@@ -7,10 +7,9 @@
   
 
   function msg({detail}) {
-    console.log({detail});
     if (detail) {
       parent.postMessage(
-        { pluginMessage: { type: detail.action, position: detail.name, weight:detail.weight } },
+        { pluginMessage: { type: detail.action, position: detail.position, weight:detail.weight } },
         '*'
       )      
     }
@@ -43,12 +42,12 @@
   <ul>
      {#each $borders as border }
       <noscript>       
-        {#if border.weight === undefined}       
+        {#if border.weight == undefined}       
          {border.weight = 0 }
          {/if}
       </noscript>
       <li>  
-        <BorderButton on:msg={msg} weight=border.weight {...border} >
+        <BorderButton on:msg={msg} {...border} >
             <BorderIcon position={border.position}/>
         </BorderButton>
       </li>

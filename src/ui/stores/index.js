@@ -50,7 +50,6 @@ window.onmessage = e => {
           if (index >= 0) {
             borders[index].exist = true
             borders[index].weight = size
-            //console.log( message.data[id])
           }
           
         })

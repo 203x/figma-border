@@ -84,5 +84,5 @@
   </button>
 </div>
 <div>
-  <input type="number" on:change={mod} value={weight}/> 
+  <input type="number" on:change={mod} bind:value={weight}/> 
 </div>

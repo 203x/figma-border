@@ -18,7 +18,6 @@ function isBorderLine(node: SceneNode): node is LineNode {
     const type = node.getPluginData('type')
     if (type === 'border') {
       var response = JSON.parse(node.getPluginData('position'));
-      //console.log(response)
       const position = response[0]      
       return posArr.includes(position)
     }

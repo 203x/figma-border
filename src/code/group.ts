@@ -52,8 +52,7 @@ class BorderFrame {
 
   addBorder(position: Pos, weight = 1): LineNode {
     const line = figma.createLine()
-    line.name = position
-    console.log("At Create" + weight)
+    line.name = position    
     line.strokeWeight = weight
 
     switch (position) {
@@ -112,7 +111,6 @@ class BorderFrame {
   getBorder(position: Pos): string[] {
     const ids: string[] = []
     for (const line of this.allBorder) {
-      //console.log(line)
       if (position === line.name) {
         ids.push(line.id)
       }
@@ -124,6 +122,11 @@ class BorderFrame {
     this.getBorder(position).forEach(id => {
       figma.getNodeById(id).remove()
     })
+  }
+  delBorderID(ids: Array<string>): void {
+    ids.forEach(id => {
+      figma.getNodeById(id).remove()
+    })    
   }
 
   toggleBorder(position: Pos, weight = 1): void {
@@ -162,7 +165,6 @@ function getSelectionBorders(): BorderFrame[] {
       borders.push(border)
     }
   })
-  //console.log(borders)
   return borders
 }
 
