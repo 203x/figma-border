@@ -17,7 +17,7 @@
     });
   }
 
-  function msg() {
+  function mod() {
     dispatch("msg", {
       action : 'modify-border',
       position,
@@ -84,5 +84,5 @@
   </button>
 </div>
 <div>
-  <input type="number" on:change={msg} value={weight}/> 
+  <input type="number" on:change={mod} value={weight}/> 
 </div>

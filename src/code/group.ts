@@ -53,6 +53,7 @@ class BorderFrame {
   addBorder(position: Pos, weight = 1): LineNode {
     const line = figma.createLine()
     line.name = position
+    console.log("At Create" + weight)
     line.strokeWeight = weight
 
     switch (position) {
@@ -111,7 +112,7 @@ class BorderFrame {
   getBorder(position: Pos): string[] {
     const ids: string[] = []
     for (const line of this.allBorder) {
-      console.log(line)
+      //console.log(line)
       if (position === line.name) {
         ids.push(line.id)
       }

@@ -10,7 +10,7 @@
     console.log({detail});
     if (detail) {
       parent.postMessage(
-        { pluginMessage: { type: detail.action, position: detail.weight, weight:detail.weight } },
+        { pluginMessage: { type: detail.action, position: detail.name, weight:detail.weight } },
         '*'
       )      
     }

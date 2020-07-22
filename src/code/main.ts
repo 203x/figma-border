@@ -33,9 +33,10 @@ figma.ui.onmessage = (msg: OnMessage): void => {
       for (const border of borders) {
         if (border.getBorder(msg.position).length > 0) {         
           border.delBorder(msg.position)
-        } else {
-          console.log(msg.weight)
-          msg.weight = msg.weight === null || msg.weight <= 0 ? 1 : msg.weight;
+        } else {          
+          msg.weight = msg.weight == null || msg.weight == 0 ? 1 : msg.weight;
+          console.log("HERE")
+          console.log(msg.position)
           border.addBorder(msg.position, msg.weight)
         }
         postBorders()
@@ -54,7 +55,7 @@ figma.ui.onmessage = (msg: OnMessage): void => {
           //console.log( msg.weight)
           msg.weight = msg.weight == null || msg.weight <= 1 ? 1 : msg.weight;
           //console.log( msg.weight)
-          temp.addBorder(msg.position, msg.weight)
+          //temp.addBorder(msg.position, msg.weight)
         }       
         postBorders()
       }
