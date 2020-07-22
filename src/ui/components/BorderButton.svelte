@@ -65,9 +65,9 @@
   button:active {
     background-color: rgba(0, 0, 0, 0.1);
   }
-  button:focus {
-    /* border: 1px solid rgba(0, 0, 0, 0.3); */
-  }
+  /* button:focus {
+     border: 1px solid rgba(0, 0, 0, 0.3);
+  } */
   button:disabled {
     background-color: rgba(0, 0, 0, 0.3);
   }
