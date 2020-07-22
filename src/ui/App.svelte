@@ -55,7 +55,7 @@
     
   </ul>
   {:else}
-  <div class="tips">Select one or more Frame layers.</div>
+  <div class="tips">Select one or more Frame or Group layers.</div>
   {/if}
 </div>
 

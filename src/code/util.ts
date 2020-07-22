@@ -3,9 +3,9 @@ type Pos = 'top' | 'right' | 'bottom' | 'left'
 const posArr = ['top', 'right', 'bottom', 'left']
 
 function isFrameLike(node: BaseNode): node is FrameLike {
-  // return node.type === 'FRAME' || node.type === 'COMPONENT' // || node.type === 'INSTANCE'
+  // return node.type === 'FRAME' || node.type === 'COMPONENT' // 
   return (
-    (node.type === 'FRAME' || node.type === 'COMPONENT') &&
+    (node.type === 'FRAME' || node.type === 'COMPONENT' ) &&
     node.layoutMode === 'NONE'
   )
 }
@@ -34,8 +34,16 @@ function isBorderLineVisible(node: BaseNode): boolean {
   return node.type === 'LINE' && theName.includes(node.name) && node.visible
 }
 
-function isGroup(node: SceneNode): node is GroupNode {
-  if (node.type === 'GROUP') {
+function isGroup(node: SceneNode): node is GroupNode {  
+  if (node.type === 'GROUP') { 
+      return true
+  }
+  return false
+}
+
+
+function isBorderGroup(node: SceneNode): node is GroupNode {  
+  if (node.type === 'GROUP') {    
     const type = node.getPluginData('type')
     if (type === 'group') {
       return true
@@ -45,7 +53,9 @@ function isGroup(node: SceneNode): node is GroupNode {
 }
 
 export {
-  isFrameLike,
-  isBorderLine,
   isGroup,
+  isFrameLike,
+  isBorderLine,  
+  isFrameInstanceNode,
+  isBorderGroup
 }
