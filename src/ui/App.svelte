@@ -1,18 +1,17 @@
 <script>
   import BorderButton from "./components/BorderButton.svelte";
-  import BorderIcon from "./components/BorderIcon.svelte";
+  import BorderIcon from "./components/BorderIcon.svelte"; 
   import { borders } from "./stores";
+
 
   
 
   function msg({detail}) {
-    const weight = 1
-
-    if (detail.position) {
+    if (detail) {
       parent.postMessage(
-        { pluginMessage: { type: 'create-border', position:detail.position, weight } },
+        { pluginMessage: { type: detail.action, position: detail.position, weight:detail.weight } },
         '*'
-      )
+      )      
     }
 
   }
@@ -41,16 +40,22 @@
 <div class="main inner">
   {#if $borders.length > 0}
   <ul>
-    {#each $borders as border (border.position)}
-      <li>
+     {#each $borders as border }
+      <noscript>       
+        {#if border.weight == undefined}       
+         {border.weight = 0 }
+         {/if}
+      </noscript>
+      <li>  
         <BorderButton on:msg={msg} {...border} >
-          <BorderIcon position={border.position}/>
+            <BorderIcon position={border.position}/>
         </BorderButton>
       </li>
     {/each}
+    
   </ul>
   {:else}
-  <div class="tips">Select one or more Frame layers.</div>
+  <div class="tips">Select one or more Frame or Group layers.</div>
   {/if}
 </div>
 
