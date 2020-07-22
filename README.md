@@ -2,6 +2,8 @@
 <p align="center"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat" alt="License"></p>
 
 <p align="center"><img src="./assets/preview.gif" alt="preview"></p>
+<p align="center"><img src="./assets/border%20control.PNG" alt="preview"></p>
+<p align="center"><img src="./assets/border%20group.PNG" alt="preview"></p>
 
 ## Installation
 
