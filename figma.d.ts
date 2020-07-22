@@ -6,7 +6,7 @@ const figma: PluginAPI
 const __html__: string
 
 interface PluginAPI {
-  readonly apiVersion: "1.0.0"
+  readonly apiVersion: "1.1.0"
   readonly command: string
   readonly viewport: ViewportAPI
   closePlugin(message?: string): void

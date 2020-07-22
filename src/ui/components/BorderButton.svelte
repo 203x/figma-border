@@ -1,20 +1,42 @@
 <script>
   export let position;
   export let exist;
+  export var weight;
 
   import { createEventDispatcher } from "svelte";
+  import { borders } from "../stores";
 
   const dispatch = createEventDispatcher();
 
+  function toggle() {
+    dispatch("msg", {
+      action : 'create-border',
+      position,
+      weight,
+      exist
+    });
+  }
+
   function msg() {
     dispatch("msg", {
+      action : 'modify-border',
       position,
+      weight,
       exist
     });
   }
 </script>
 
 <style>
+  div{
+    text-align:center;
+  }
+  
+  input {
+    width: 40px;
+    height: 20px;
+    text-align: right;
+  }
   button {
     display: inline-block;
     flex-shrink: 0;
@@ -56,6 +78,11 @@
   }
 </style>
 
-<button on:click={msg} class:active={exist}>
-  <slot />
-</button>
+<div>
+  <button on:click={toggle} class:active={exist}>
+    <slot />
+  </button>
+</div>
+<div>
+  <input type="number" on:change={msg} value={weight}/> 
+</div>

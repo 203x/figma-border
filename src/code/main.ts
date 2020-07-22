@@ -31,11 +31,31 @@ figma.ui.onmessage = (msg: OnMessage): void => {
       figma.notify('Select Frame.')
     } else {
       for (const border of borders) {
-        if (border.getBorder(msg.position).length > 0) {
+        if (border.getBorder(msg.position).length > 0) {         
           border.delBorder(msg.position)
         } else {
+          console.log(msg.weight)
+          msg.weight = msg.weight === null || msg.weight <= 0 ? 1 : msg.weight;
           border.addBorder(msg.position, msg.weight)
         }
+        postBorders()
+      }
+    }
+  }
+  if (msg.type === 'modify-border') {
+    if (borders.length < 1) {
+      figma.notify('Select Frame.')
+    } else {
+      for (const border of borders) {
+        const temp = border
+        if (border.getBorder(msg.position).length > 0) {
+          //console.log(border.getBorder(msg.position))
+//          border.delBorder(msg.position)
+          //console.log( msg.weight)
+          msg.weight = msg.weight == null || msg.weight <= 1 ? 1 : msg.weight;
+          //console.log( msg.weight)
+          temp.addBorder(msg.position, msg.weight)
+        }       
         postBorders()
       }
     }

@@ -21,7 +21,7 @@ class BorderFrame {
   }
 
   get allBorder(): LineNode[] {
-    if (this.group) {
+    if (this.group) {      
       return this.group.children.filter(isBorderLine)
     } else {
       return []
@@ -34,9 +34,10 @@ class BorderFrame {
     }
     const border = {}
     for (const line of this.allBorder) {
-      border[line.id] = line.name
+      border[line.id] = { 0 : line.name ,1 : line.strokeWeight}   
     }
     return border
+    
   }
 
   initGroup(lines: LineNode[]): void {
@@ -97,7 +98,7 @@ class BorderFrame {
     }
     line.setRelaunchData({ edit: '' })
     line.setPluginData('type', 'border')
-    line.setPluginData('position', position)
+    line.setPluginData('position', JSON.stringify({0: position, 1: line.strokeWeight }))
     this.node.appendChild(line)
     if (this.group) {
       this.group.appendChild(line)
@@ -110,10 +111,11 @@ class BorderFrame {
   getBorder(position: Pos): string[] {
     const ids: string[] = []
     for (const line of this.allBorder) {
+      console.log(line)
       if (position === line.name) {
         ids.push(line.id)
       }
-    }
+    }    
     return ids
   }
 
@@ -159,6 +161,7 @@ function getSelectionBorders(): BorderFrame[] {
       borders.push(border)
     }
   })
+  //console.log(borders)
   return borders
 }
 
