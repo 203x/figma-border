@@ -118,7 +118,7 @@ class BorderFrame {
   }
 
   delBorder(position: Pos): void {
-    this.getBorder(position).forEach(id => {
+    this.getBorder(position).forEach((id) => {
       figma.getNodeById(id).remove()
     })
   }
@@ -153,7 +153,7 @@ function getBorderFrame(node: SceneNode): BorderFrame {
 function getSelectionBorders(): BorderFrame[] {
   const selection = figma.currentPage.selection
   const borders: BorderFrame[] = []
-  selection.forEach(node => {
+  selection.forEach((node) => {
     const border = getBorderFrame(node)
     if (border) {
       borders.push(border)

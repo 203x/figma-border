@@ -3,7 +3,7 @@ import { getSelectionBorders } from './group'
 
 function postBorders(): void {
   const data = {}
-  getSelectionBorders().forEach(border => {
+  getSelectionBorders().forEach((border) => {
     data[border.node.id] = border.message
   })
 

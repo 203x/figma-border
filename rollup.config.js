@@ -35,9 +35,7 @@ const ui = {
     }),
     postcss({ extract: true, minimize: production }),
     resolve({
-      customResolveOptions: {
-        moduleDirectory: 'node_modules',
-      },
+      moduleDirectories: ['node_modules'],
     }),
     commonjs(),
     html({
@@ -50,7 +48,8 @@ const ui = {
           const typeFile = files[key]
           if (key === 'css') {
             typeFile.forEach((file) => {
-              if (file.isAsset) {
+              // if (file.isAsset) {
+              if (file.type === 'asset') {
                 css.push(file.source)
               }
             })

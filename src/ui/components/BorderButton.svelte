@@ -1,16 +1,16 @@
 <script>
-  export let position;
-  export let exist;
+  export let position
+  export let exist
 
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher } from 'svelte'
 
-  const dispatch = createEventDispatcher();
+  const dispatch = createEventDispatcher()
 
   function msg() {
-    dispatch("msg", {
+    dispatch('msg', {
       position,
-      exist
-    });
+      exist,
+    })
   }
 </script>
 
@@ -18,7 +18,7 @@
   button {
     display: inline-block;
     flex-shrink: 0;
-    font-family: "Inter", sans-serif;
+    font-family: 'Inter', sans-serif;
     text-transform: capitalize;
 
     padding: 8px;
