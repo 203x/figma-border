@@ -50,13 +50,13 @@ const ui = {
           const typeFile = files[key]
           if (key === 'css') {
             typeFile.forEach((file) => {
-              if (file.isAsset) {
+              if (file.type === 'asset') {
                 css.push(file.source)
               }
             })
           } else if (key === 'js') {
             typeFile.forEach((file) => {
-              if (file.isEntry) {
+              if (file.type === 'asset') {
                 js.push(file.code)
               }
             })

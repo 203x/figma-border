@@ -3,9 +3,9 @@
   "compilerOptions": {
     "target": "es6",
     "locale": "zh-CN",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "typeRoots": ["./node_modules/@types", "./node_modules/@figma"]
   },
-  "files": ["figma.d.ts"],
   "exclude": ["node_modules"],
   "include": ["src/code"]
 }
