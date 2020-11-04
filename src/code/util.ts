@@ -24,12 +24,12 @@ function isBorderLine(node: SceneNode): node is LineNode {
   return false
 }
 function isBorderLineOld(node: BaseNode): boolean {
-  const theName = posArr.map(pos => `Border_${pos}`)
+  const theName = posArr.map((pos) => `Border_${pos}`)
   return node.type === 'LINE' && theName.includes(node.name)
 }
 
 function isBorderLineVisible(node: BaseNode): boolean {
-  const theName = posArr.map(pos => `Border_${pos}`)
+  const theName = posArr.map((pos) => `Border_${pos}`)
   return node.type === 'LINE' && theName.includes(node.name) && node.visible
 }
 
@@ -43,8 +43,4 @@ function isGroup(node: SceneNode): node is GroupNode {
   return false
 }
 
-export {
-  isFrameLike,
-  isBorderLine,
-  isGroup,
-}
+export { isFrameLike, isBorderLine, isGroup }
