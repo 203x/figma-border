@@ -30,7 +30,7 @@
     "@typescript-eslint/parser": "^4.6.1",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "prettier": "^2.1.2",
     "rollup": "^2.33.1",
     "rollup-plugin-delete": "^2.0.0",
